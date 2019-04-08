@@ -1,11 +1,8 @@
 
 package Interface;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.StringTokenizer;
 import java.util.jar.Attributes;
-import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -17,7 +14,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javax.swing.JOptionPane;
 
 public class InterfaceEmployee {
 
@@ -36,14 +32,14 @@ public class InterfaceEmployee {
 
     //Interface Add Employee
     public VBox getmIAddEmployee() {
-
+        
         VBox vBAddEmployee = new VBox();
         GridPane gPCommand = new GridPane();
-
+        
         //Buttons
         Button btnAdd = new Button("Save");
         Button btnExit = new Button("Exit");
-
+        
         //Form
         Label lbForm = new Label("Application Form to insert employee");
         lbForm.setFont(new Font("Garamond", 26));

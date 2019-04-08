@@ -40,18 +40,19 @@ public class Administrator extends Employee{
         this.qualify = qualify;
     }
 
-    @Override
-    public void calculateSalary() {
-        double temp =0;
-        if(category){
-            temp =250;
-            if(qualify)
-                temp = (250*0.0395)+ 250; 
+//Salary Manager Calculator
+    public double estimateSalary() {
+        double temp = this.getSalary();
+        
+        if (category == true) {
+            return 250;
+
         }
-        else{
-            temp =(250+(250*0.20));
-            if(qualify)
-                temp = 250+(250*0.20)+(250*0.0395);
+        if (category == false) {
+            temp += 250 * 0.2;
+           this.setSalary(temp);
         }
+        return temp;
     }
-}
+    }
+
