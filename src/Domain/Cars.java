@@ -111,5 +111,12 @@ public class Cars extends Driver {
         }
     }
 
+    public int size() {
+        return this.getBrand().length() 
+                + this.getModel().length()
+                    + this.getYear().length()
+                        +this.Plate;
+    }
+
 }
 

@@ -16,6 +16,7 @@ public class InterfaceMenu {
         //Principal  Scene
         VBox vBPrincipal = new VBox();
         InterfaceEmployee inface = new InterfaceEmployee();
+        InterfaceVehicle inteface = new InterfaceVehicle();
         
         vBPrincipal.setStyle("-fx-background-image:url(FondoPrincipal.jpg);"
                 + "-fx-background-repeat:no-repeat;"
@@ -72,20 +73,20 @@ public class InterfaceMenu {
         //Vehicle Button
         mIAddVehicle.setOnAction((event) -> {
             vBWindows.getChildren().clear();
-           // vBWindows.getChildren().addAll(ic.getAddVehicle());
+            vBWindows.getChildren().addAll(inteface.getmIAddVehicle());
         });
         mIModifyVehicle.setOnAction((event) -> {
             vBWindows.getChildren().clear();
-            //vBWindows.getChildren().addAll(ic.ModifyVehicle());
+            vBWindows.getChildren().addAll(inteface.getModifyVehicle());
         });
         mIDeletedVehicle.setOnAction((event) -> {
             vBWindows.getChildren().clear();
-            //vBWindows.getChildren().addAll(ic.DeleteVehicle());
+            vBWindows.getChildren().addAll(inteface.getDeleteVehicle());
 
         });
          mISeeAllVehicle.setOnAction((event) -> {
             vBWindows.getChildren().clear();
-            //vBWindows.getChildren().addAll(ic.mISeeAllVehicle());
+            vBWindows.getChildren().addAll(inteface.getSeeAllVehicle());
         });
         
         //About submenus
