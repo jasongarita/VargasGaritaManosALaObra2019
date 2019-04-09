@@ -3,6 +3,8 @@ package Interface;
 import Domain.Cars;
 import java.util.StringTokenizer;
 import java.util.jar.Attributes;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -21,10 +23,10 @@ public class InterfaceVehicle {
     Font Garamond = new Font("Garamond", 18);
 
     //Objects Declaration
-    TextField tfName = new TextField();
+    TextField tfBrand = new TextField();
+    TextField tFModel = new TextField();
     TextField tFYear = new TextField();
-    TextField tFMileage = new TextField();
-    TextField tFSerie = new TextField();
+    TextField tFPlate = new TextField();
 
     //Interface Add Vehicle
     public VBox getmIAddVehicle() {
@@ -44,36 +46,36 @@ public class InterfaceVehicle {
         lbForm.setTranslateY(10);
 
         //Name
-        Label lBName = new Label("Name");
-        lBName.setStyle("-fx-text-fill: lightgreen;" + "-fx-background-color:gray ");
-        tfName.setPromptText("Insert Name");
-        lBName.setFont(Garamond);
-        tfName.setMinSize(275, 30);
-        tfName.setMaxSize(275, 30);
+        Label lBBrand = new Label("Brand");
+        lBBrand.setStyle("-fx-text-fill: lightgreen;" + "-fx-background-color:gray ");
+        tfBrand.setPromptText("Insert Brand");
+        lBBrand.setFont(Garamond);
+        tfBrand.setMinSize(275, 30);
+        tfBrand.setMaxSize(275, 30);
+
+        //Model
+        Label lBModel = new Label("Model");
+        lBModel.setStyle("-fx-text-fill: lightgreen;" + "-fx-background-color:gray ");
+        tFModel.setPromptText("Insert year");
+        lBModel.setFont(Garamond);
+        tFModel.setMinSize(275, 30);
+        tFModel.setMaxSize(275, 30);
 
         //Year
-        Label lBYear = new Label("Year");
-        lBYear.setStyle("-fx-text-fill: lightgreen;" + "-fx-background-color:gray ");
-        tFYear.setPromptText("Insert year");
-        lBYear.setFont(Garamond);
+        Label lbYear = new Label("Year");
+        lbYear.setStyle("-fx-text-fill: lightgreen;" + "-fx-background-color:gray ");
+        tFYear.setPromptText("Example: 0000000");
+        lbYear.setFont(Garamond);
         tFYear.setMinSize(275, 30);
         tFYear.setMaxSize(275, 30);
 
-        //Mileage
-        Label lbMileage = new Label("Mileage");
-        lbMileage.setStyle("-fx-text-fill: lightgreen;" + "-fx-background-color:gray ");
-        tFMileage.setPromptText("Example: 0000000");
-        lbMileage.setFont(Garamond);
-        tFMileage.setMinSize(275, 30);
-        tFMileage.setMaxSize(275, 30);
-
-        //Serie
-        Label lbSerie = new Label("Serie");
-        lbSerie.setStyle("-fx-text-fill: lightgreen;" + "-fx-background-color:gray ");
-        tFSerie.setPromptText("Example: 457348");
-        lbSerie.setFont(Garamond);
-        tFSerie.setMinSize(275, 30);
-        tFSerie.setMaxSize(275, 30);
+        //Plate
+        Label lbPlate = new Label("Plate");
+        lbPlate.setStyle("-fx-text-fill: lightgreen;" + "-fx-background-color:gray ");
+        tFPlate.setPromptText("Example: 457348");
+        lbPlate.setFont(Garamond);
+        tFPlate.setMinSize(275, 30);
+        tFPlate.setMaxSize(275, 30);
 
         //Create a comboBox Qualify for all
         ComboBox kind = new ComboBox();
@@ -84,14 +86,14 @@ public class InterfaceVehicle {
         kind.setVisible(true);
 
         //Add to GridPane
-        gPCommand.add(lBName, 0, 0);
-        gPCommand.add(tfName, 1, 0);
-        gPCommand.add(lBYear, 0, 1);
-        gPCommand.add(tFYear, 1, 1);
-        gPCommand.add(lbMileage, 0, 2);
-        gPCommand.add(tFMileage, 1, 2);
-        gPCommand.add(lbSerie, 0, 3);
-        gPCommand.add(tFSerie, 1, 3);
+        gPCommand.add(lBBrand, 0, 0);
+        gPCommand.add(tfBrand, 1, 0);
+        gPCommand.add(lBModel, 0, 1);
+        gPCommand.add(tFModel, 1, 1);
+        gPCommand.add(lbYear, 0, 2);
+        gPCommand.add(tFYear, 1, 2);
+        gPCommand.add(lbPlate, 0, 3);
+        gPCommand.add(tFPlate, 1, 3);
         gPCommand.add(kind, 1, 6);
         gPCommand.add(btnAdd, 0, 14);
         gPCommand.add(btnExit, 1, 14);
@@ -118,23 +120,19 @@ public class InterfaceVehicle {
         vBAddVehicle.getChildren().addAll(lbForm, gPCommand);
         return vBAddVehicle;
     
-    btnAdd.setOnAction((event)->{
+    /*btnAdd.setOnAction(new EventHandler<ActionEvent>() {}){
+        @Override
+                public void handle(ActionEvent event){
+        Cars car = new Cars(tfBrand.getText(), tFModel.getText(), tFYear.getText(),tFPlate.getText() , true);
+        if (tfBrand.getText().length()== 0  ) {
             
-            Cars car = new Cars(tfName.getText(), tFSerie.getText(), tFYear.getText(), tf);
-            if (tfName.getLength() == 0 || tFSerie.getLength() == 0 || tFYear == 0)
-                lb_mensaje.setVisible(true);
-            else{
-                Limpiar();
-                .getAdd(Contact);
-            }
-        });
+        }
+    }
+    });*/
          
-        btn_Limpiar.setOnAction((event)->{
-            Limpiar();
-        });
         
-        vB_agregarContacto.getChildren().addAll(lb_Formulario,gP_ordenador);
-    return vB_agregarContacto;        
+        
+           
     
     }
 
@@ -375,8 +373,9 @@ public class InterfaceVehicle {
     //Clean all textField
     public void Limpiar() {
 
-        tfName.setText("");
+        tfBrand.setText("");
+        tFModel.setText("");
         tFYear.setText("");
-        tFMileage.setText("");
+        tFPlate.setText("");
     }
 }

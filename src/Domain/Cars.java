@@ -4,10 +4,10 @@ public class Cars extends Driver {
      private String Brand;
     private String Model;
     private String Year;
-    private int Plate;
+    private String Plate;
     private boolean Donor;
     
-    public Cars(String Brand, String Model, String Year, int Plate, boolean cars) {
+    public Cars(String Brand, String Model, String Year, String Plate, boolean cars) {
         this.Brand = Brand;
         this.Model = Model;
         this.Year = Year;
@@ -15,7 +15,7 @@ public class Cars extends Driver {
         this.cars = cars;
     }
 
-    public Cars(String Brand, String Model, String Year, int Plate, boolean cars, boolean donor, String kindLicense, boolean schedule, int hours, boolean qualified) {
+    public Cars(String Brand, String Model, String Year, String Plate, boolean cars, boolean donor, String kindLicense, boolean schedule, int hours, boolean qualified) {
         super(donor, kindLicense, schedule, hours, qualified);
         this.Brand = Brand;
         this.Model = Model;
@@ -24,7 +24,7 @@ public class Cars extends Driver {
         this.cars = cars;
     }
 
-    public Cars(String Brand, String Model, String Year, int Plate, boolean cars, boolean donor, String kindLicense, boolean schedule, int hours, boolean qualified, String name, String lastName, double salary, String ID, int employeeNumber) {
+    public Cars(String Brand, String Model, String Year, String Plate, boolean cars, boolean donor, String kindLicense, boolean schedule, int hours, boolean qualified, String name, String lastName, double salary, String ID, int employeeNumber) {
         super(donor, kindLicense, schedule, hours, qualified, name, lastName, salary, ID, employeeNumber);
         this.Brand = Brand;
         this.Model = Model;
@@ -65,11 +65,11 @@ public class Cars extends Driver {
         this.Year = Year;
     }
 
-    public int getPlate() {
+    public String getPlate() {
         return Plate;
     }
 
-    public void setPlate(int Plate) {
+    public void setPlate(String Plate) {
         this.Plate = Plate;
     }
 
@@ -115,7 +115,7 @@ public class Cars extends Driver {
         return this.getBrand().length() 
                 + this.getModel().length()
                     + this.getYear().length()
-                        +this.Plate;
+                        +this.getPlate().length();
     }
 
 }

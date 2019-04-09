@@ -81,12 +81,12 @@ public class VehicleFile {
                 randomAccessFile.writeUTF(car.getBrand());
                 randomAccessFile.writeUTF(car.getModel());
                 randomAccessFile.writeUTF(car.getYear());
-                randomAccessFile.writeInt(car.getPlate());
+                randomAccessFile.writeUTF(car.getPlate());
                 return true;
             }
         }
         else{
-            System.err.print("7002 position is "
+            System.err.print("901 position is "
                     + "out of bounds of this file");
                 return false;
         }
@@ -119,7 +119,7 @@ public class VehicleFile {
             myCar.setBrand(randomAccessFile.readUTF());
             myCar.setModel(randomAccessFile.readUTF());
             myCar.setYear(randomAccessFile.readUTF());
-            myCar.setPlate(randomAccessFile.readInt());
+            myCar.setPlate(randomAccessFile.readUTF());
             
             
             if(myCar.getBrand().equalsIgnoreCase("delete")){
