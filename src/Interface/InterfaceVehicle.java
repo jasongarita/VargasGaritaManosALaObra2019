@@ -1,5 +1,6 @@
 package Interface;
 
+import Domain.Cars;
 import java.util.StringTokenizer;
 import java.util.jar.Attributes;
 import javafx.scene.control.Button;
@@ -116,6 +117,25 @@ public class InterfaceVehicle {
 
         vBAddVehicle.getChildren().addAll(lbForm, gPCommand);
         return vBAddVehicle;
+    
+    btnAdd.setOnAction((event)->{
+            
+            Cars car = new Cars(tfName.getText(), tFSerie.getText(), tFYear.getText(), tf);
+            if (tfName.getLength() == 0 || tFSerie.getLength() == 0 || tFYear == 0)
+                lb_mensaje.setVisible(true);
+            else{
+                Limpiar();
+                .getAdd(Contact);
+            }
+        });
+         
+        btn_Limpiar.setOnAction((event)->{
+            Limpiar();
+        });
+        
+        vB_agregarContacto.getChildren().addAll(lb_Formulario,gP_ordenador);
+    return vB_agregarContacto;        
+    
     }
 
     public VBox getModifyVehicle() {
@@ -297,23 +317,13 @@ public class InterfaceVehicle {
         btn_Salir.setOnAction((event) -> {
             v_Cont.getChildren().clear();
         });
-//        try{
-//        String registroActual =br.readLine();
-//        
-//        if(registroActual == null){
-//            v_Contenedor.getChildren().clear();
-//            v_Contenedor.getChildren().addAll(ListaVacia());
-//        }
-//        else
-//            v_Contenedor.getChildren().addAll(lb_MustraLista,tv_Lista,btn_Salir);
-//        }
-//        catch(IOException ieo){
-//            JOptionPane.showMessageDialog(null, "Problemas con el archivo");  
-//        }
+
 
         v_Cont.getChildren().addAll(lb_ShowList, tv_Lista);
         return v_Cont;
     }
+    
+    
 
     //Acerca de
     public VBox AcerceDe() {
@@ -342,7 +352,7 @@ public class InterfaceVehicle {
     public VBox Creditos() {
 
         VBox v_Contenedor = new VBox();
-        TextArea ta_Creditos = new TextArea("Did by: \nNeytan Vargas Espinoza \nJason Garita Ulloa \n\nFrist Program Project \nneytanvargas400@gmial.com\n ");
+        TextArea ta_Creditos = new TextArea("Did by: \nNeytan Vargas Espinoza \nJason Garita Ulloa \n\nFirst Program Project \nneytanvargas400@gmial.com\n ");
         ta_Creditos.setStyle("-fx-text-fill: green");
         ta_Creditos.setMinSize(555, 420);
         ta_Creditos.setMaxSize(555, 420);
